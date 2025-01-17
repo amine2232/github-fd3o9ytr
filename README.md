@@ -1,2 +1,2 @@
-# github-fd3o9ytr
+# qu2
 Repository created by Bolt to GitHub extension

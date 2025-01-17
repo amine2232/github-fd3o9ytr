@@ -1,0 +1,35 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" unloaded="onUnloaded">
+    <ActionBar title="Speech to Text" />
+    
+    <GridLayout rows="auto, *, auto, auto" columns="*" class="p-4">
+        <!-- Original Text Area -->
+        <StackLayout row="0" class="mb-4">
+            <Button text="Toggle Text" tap="{{ toggleTextVisibility }}" 
+                    class="mb-2 bg-blue-500 text-white font-bold py-2 px-4 rounded" />
+            <Label text="{{ originalText }}" 
+                   textWrap="true" 
+                   class="text-lg text-right p-4 {{ isTextVisible ? '' : 'invisible' }}" 
+                   style="direction: rtl;" />
+        </StackLayout>
+
+        <!-- Practice Area -->
+        <ScrollView row="1" class="mb-4">
+            <Label text="{{ displayedText }}" 
+                   textWrap="true"
+                   class="text-xl text-right p-4 text-green-600"
+                   style="direction: rtl;" />
+        </ScrollView>
+        
+        <!-- Recording Status -->
+        <StackLayout row="2" class="text-center mb-4">
+            <Label text="{{ isRecording ? 'Recording...' : 'Tap microphone to start' }}"
+                   class="text-sm text-gray-500" />
+        </StackLayout>
+        
+        <!-- Microphone Button -->
+        <Button row="3" 
+                text="&#xf130;" 
+                tap="{{ onPushToTalk }}"
+                class="{{ isRecording ? 'fas recording-button' : 'fas mic-button' }}" />
+    </GridLayout>
+</Page>
